@@ -99,6 +99,7 @@ The sample is one real run, not a week of waiting. `seed-baseline.py 20261006` s
 ## What it costs
 
 - Olostep: structured extraction is 10 credits per page, so about 90 credits per run for 9 pages, plus retries and up to 3 Answers calls.
+- Model: Hermes estimated $0.53–$0.69 per run on Claude Sonnet 5 via OpenRouter.
 - A run takes about 4–5 minutes.
 
 ## Known limits
