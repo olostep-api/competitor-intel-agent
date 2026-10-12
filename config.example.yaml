@@ -1,0 +1,9 @@
+# Add this block to ~/.hermes/config.yaml.
+# Put the key itself in ~/.hermes/.env as COMPOSIO_API_KEY=... (never in this file).
+mcp_servers:
+  composio:
+    url: "https://connect.composio.dev/mcp"
+    headers:
+      x-consumer-api-key: "${COMPOSIO_API_KEY}"
+    connect_timeout: 60
+    timeout: 180

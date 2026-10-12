@@ -1,0 +1,15 @@
+*Competitor intel — week of 2026-10-13*
+Compared with copies saved 2026-09-22 to 2026-10-06.
+
+*Linear*
+• Pricing: no change
+• Shipped: Stacked pull requests (Oct 8, 2026)
+_What it means:_ Linear Diffs now shows stacked PR status at a glance, reinforcing Linear's push to become a code-centric, AI-agent-assisted delivery platform beyond issue tracking. (<https://linear.app/changelog/2026-10-08-stacked-pull-requests|changelog>)
+*Notion*
+• Pricing: no change
+• Published: <https://www.notion.com/blog/how-we-built-a-personal-data-scientist-for-every-notion-employee|How we built a personal data scientist for every Notion employee>
+*Asana*
+• Pricing: no change
+• Published: <https://asana.com/inside-asana/database-architecture-sharding-scaling|Inside Asana's Database Architecture: Sharding, Data Flow, and Scaling Tradeoffs> (Oct 10), <https://asana.com/inside-asana/cut-browsers-agent-cost|How we cut a browser agent's cost 76x> (Oct 8), <https://asana.com/inside-asana/asana-client-management|Deliver great client work at scale with Asana Client Management, now GA> (Sep 28) +3 more
+_What it means:_ Asana's new Client Management GA and "Command by Asana" launch show it pushing into agency/client-services and specialized builder-focused product lines beyond general work management.
+*Takeaway:* No pricing moves this week; all three competitors are shipping incremental AI-agent and workflow features while Asana is the most aggressive on new product lines (Client Management, Command by Asana).

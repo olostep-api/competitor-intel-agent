@@ -1,0 +1,14 @@
+{
+  "slack_channel": "competitor-intel-demo",
+  "pages": [
+    { "id": "linear-pricing",   "company": "Linear", "type": "pricing",   "url": "https://linear.app/pricing" },
+    { "id": "linear-changelog", "company": "Linear", "type": "changelog", "url": "https://linear.app/changelog" },
+    { "id": "linear-blog",      "company": "Linear", "type": "blog",      "url": "https://linear.app/now" },
+    { "id": "notion-pricing",   "company": "Notion", "type": "pricing",   "url": "https://www.notion.com/pricing" },
+    { "id": "notion-changelog", "company": "Notion", "type": "changelog", "url": "https://www.notion.com/releases" },
+    { "id": "notion-blog",      "company": "Notion", "type": "blog",      "url": "https://www.notion.com/blog" },
+    { "id": "asana-pricing",    "company": "Asana",  "type": "pricing",   "url": "https://asana.com/pricing" },
+    { "id": "asana-changelog",  "company": "Asana",  "type": "changelog", "url": "https://asana.com/whats-new" },
+    { "id": "asana-blog",       "company": "Asana",  "type": "blog",      "url": "https://asana.com/inside-asana" }
+  ]
+}

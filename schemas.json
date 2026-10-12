@@ -1,0 +1,52 @@
+{
+  "pricing": {
+    "type": "object",
+    "properties": {
+      "plans": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "price": { "type": "string", "description": "Price exactly as shown, with currency and billing unit" },
+            "key_limits": { "type": "array", "items": { "type": "string" }, "description": "Up to 6 headline limits or features" }
+          }
+        }
+      }
+    }
+  },
+  "changelog": {
+    "type": "object",
+    "properties": {
+      "entries": {
+        "type": "array",
+        "description": "The 8 most recent changelog or release entries, newest first",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "date": { "type": "string" },
+            "summary": { "type": "string", "description": "One sentence" }
+          }
+        }
+      }
+    }
+  },
+  "blog": {
+    "type": "object",
+    "properties": {
+      "posts": {
+        "type": "array",
+        "description": "The 8 most recent blog posts, newest first",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "date": { "type": "string" },
+            "url": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}
