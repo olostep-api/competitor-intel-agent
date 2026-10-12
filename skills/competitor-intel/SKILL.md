@@ -36,7 +36,7 @@ All under `~/.hermes/competitor-intel/`:
 
 ### 1. Load
 
-Read `watchlist.json`, `schemas.json` and every existing `state/<id>.json`.
+Read `watchlist.json`, `schemas.json` and every existing `state/<id>.json` with the `read_file` tool, one call per file. Do not use `cat` or another shell command for this: Hermes only lets `write_file` overwrite a file that `read_file` has read in the same run, so reading any other way makes step 6 fail.
 
 ### 2. Scrape with Olostep (through Composio)
 
@@ -62,11 +62,7 @@ Wording, ordering, capitalisation and URL-prefix differences are not changes. If
 
 Pick at most 3 of the most significant changes (a price change always qualifies). For each, call `OLOSTEP_ANSWER_QUESTION` with a `task` asking what the change is and what it signals about the company's direction, in 2 sentences with sources. Use the answer and its source links in the analysis.
 
-### 5. Save
-
-Overwrite each `state/<id>.json` with the new data, `captured_at` set to today's date (YYYY-MM-DD) and `source` set to `live`. Do this only for pages whose scrape succeeded.
-
-### 6. Post to Slack
+### 5. Post to Slack
 
 Call `SLACK_SEND_MESSAGE` once, with `channel` from the watchlist and `markdown_text` in this shape:
 
@@ -97,6 +93,10 @@ If nothing changed anywhere, post a single line: `Competitor intel — week of <
 
 If every page was a first run, post instead: `Competitor intel — baseline saved for <N> pages. Changes will be reported from the next run.`
 
+### 6. Save
+
+Posting comes first so that a problem saving files can never silence the update. Now overwrite each `state/<id>.json` with `write_file`, using the new data, `captured_at` set to today's date (YYYY-MM-DD) and `source` set to `live`. Do this only for pages whose scrape succeeded.
+
 ### 7. Final response
 
-Reply with a short run report: pages scraped, pages that failed, number of changes, and whether the Slack post succeeded.
+Reply with a short run report: pages scraped, pages that failed, number of changes, whether the Slack post succeeded, and whether every state file was saved.
