@@ -95,6 +95,8 @@ Formatting rules:
 
 If nothing changed anywhere, post a single line: `Competitor intel — week of <today>: no changes on <N> pages.`
 
+If every page was a first run, post instead: `Competitor intel — baseline saved for <N> pages. Changes will be reported from the next run.`
+
 ### 7. Final response
 
 Reply with a short run report: pages scraped, pages that failed, number of changes, and whether the Slack post succeeded.
