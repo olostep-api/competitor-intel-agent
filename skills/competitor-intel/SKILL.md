@@ -50,7 +50,7 @@ For every page call the Composio tool `OLOSTEP_SCRAPE_PAGE` with:
 { "url": "<page url>", "formats": ["json"], "extraction_schema": <schemas[page.type]>, "country": "US", "wait_before_scraping": 6000 }
 ```
 
-Run them in parallel with `COMPOSIO_MULTI_EXECUTE_TOOL`. The structured result is in `data.result.json_content`. `country` keeps localized sites in English; the wait lets script-rendered pages finish loading. An empty list, or items whose fields are all null, means the scrape failed for that page: retry it once, then report it as failed.
+Run them in parallel with `COMPOSIO_MULTI_EXECUTE_TOOL`. The structured result is in `data.result.json_content`. `country` keeps localized sites in English; the wait lets script-rendered pages finish loading. An empty list, or items whose fields are all null, means the structured extraction failed for that page. Retry it once. If it is still empty, fall back to plain text: call `OLOSTEP_SCRAPE_PAGE` again with `"formats": ["markdown"]` (same `url`, `country` and `wait_before_scraping`, no `extraction_schema`), read `data.result.markdown_content`, and fill in the same fields yourself from that text, following the schema for the page type. Only report the page as failed if the plain-text scrape also fails or does not contain the information.
 
 ### 3. Compare
 
