@@ -60,7 +60,7 @@ For each page, compare the new data with `state/<id>.json`:
 - `changelog`: entries whose title is not in the saved copy.
 - `blog`: posts whose title is not in the saved copy.
 
-For `changelog` and `blog`, an item only counts as new if it is dated after the saved copy's `captured_at`. An item with an earlier date is old content the extractor happened to pick up this time: ignore it. If an item has no date, count it as new only when it sits above every item that is in the saved copy.
+For `changelog` and `blog`, an item only counts as new if it is dated on or after the saved copy's `captured_at`. An item with an earlier date is old content the extractor happened to pick up this time: ignore it. If an item has no date, count it as new only when it sits above every item that is in the saved copy.
 
 Wording, ordering, capitalisation and URL-prefix differences are not changes. If a price comes back in a different currency than the saved copy, the scrape was geo-routed: re-scrape that page (up to 2 retries) before comparing; if it still differs, do not report a price change and do not save that page. If a page has no saved copy, treat it as a first run: no changes, just save it.
 
@@ -80,7 +80,7 @@ Compared with copies saved <earliest captured_at> to <latest captured_at>.
 • Pricing: <change, old → new> | no change
 • Shipped: <new changelog entries, title (date)>
 • Published: <new blog posts, linked titles>
-_What it means:_ <1–2 sentences of analysis, with source links where Answers supplied them>
+_What it means:_ <one sentence of analysis, with source links where Answers supplied them>
 
 (repeat per company, blank line between companies)
 
