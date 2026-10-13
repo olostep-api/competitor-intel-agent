@@ -36,7 +36,11 @@ All under `~/.hermes/competitor-intel/`:
 
 ### 1. Load
 
-Read `watchlist.json`, `schemas.json` and every existing `state/<id>.json` with the `read_file` tool, one call per file. Do not use `cat` or another shell command for this: Hermes only lets `write_file` overwrite a file that `read_file` has read in the same run, so reading any other way makes step 6 fail.
+Read `watchlist.json` and `schemas.json` with the `read_file` tool.
+
+Then list the `state/` directory (for example `ls ~/.hermes/competitor-intel/state/`) and call `read_file` once for each `.json` file that is actually there. Never call `read_file` on a state file that is not in the listing: a missing file is not an error, it means that page has no saved copy yet. If the directory is empty, this is a first run for every page.
+
+Use `read_file` for the state files, not `cat`: Hermes only lets `write_file` overwrite a file that `read_file` has read in the same run, so reading any other way makes step 6 fail.
 
 ### 2. Scrape with Olostep (through Composio)
 
@@ -52,9 +56,11 @@ Run them in parallel with `COMPOSIO_MULTI_EXECUTE_TOOL`. The structured result i
 
 For each page, compare the new data with `state/<id>.json`:
 
-- `pricing`: plans added or removed, a changed price, a changed headline limit. Match plans by name.
+- `pricing`: a plan added or removed, or a changed price. Match plans by name. Differences in `key_limits` alone are not changes: the extractor picks a slightly different set of headline features on each run.
 - `changelog`: entries whose title is not in the saved copy.
 - `blog`: posts whose title is not in the saved copy.
+
+For `changelog` and `blog`, an item only counts as new if it is dated after the saved copy's `captured_at`. An item with an earlier date is old content the extractor happened to pick up this time: ignore it. If an item has no date, count it as new only when it sits above every item that is in the saved copy.
 
 Wording, ordering, capitalisation and URL-prefix differences are not changes. If a price comes back in a different currency than the saved copy, the scrape was geo-routed: re-scrape that page (up to 2 retries) before comparing; if it still differs, do not report a price change and do not save that page. If a page has no saved copy, treat it as a first run: no changes, just save it.
 

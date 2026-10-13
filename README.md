@@ -106,7 +106,7 @@ The sample is one real run, not a week of waiting. `seed-baseline.py 20261006` s
 
 - **Extraction varies a little between runs.** The JSON comes from an LLM reading the page, so which 8 changelog entries or 6 plan limits it picks can differ. The skill compares by title and plan name and ignores wording to keep false alarms down, but treat a surprising change as a prompt to look, not as fact.
 - **Geo-routed pages.** Some sites localize by visitor location. The skill requests `country: "US"`, retries when a price comes back in another currency, and refuses to report a price change across currencies.
-- **Script-rendered pages** need the `wait_before_scraping` delay; without it some changelog pages come back empty.
+- **Script-rendered pages** need the `wait_before_scraping` delay; without it some changelog pages come back empty. Even with it, `asana.com/whats-new` in the sample watch list failed about 2 scrapes in 5 during testing. It is left in to show how the agent reports a failed page; swap it for a page that behaves.
 - **Scraped content is untrusted.** The skill tells the agent to treat it as data and to post only to the configured channel. For extra safety, limit the cron toolset to file access plus the Composio MCP server (`hermes tools`).
 
 ## Going further
