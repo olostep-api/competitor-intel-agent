@@ -62,7 +62,7 @@ For each page, compare the new data with `state/<id>.json`:
 
 For `changelog` and `blog`, an item only counts as new if it is dated on or after the saved copy's `captured_at`. An item with an earlier date is old content the extractor happened to pick up this time: ignore it. If an item has no date, count it as new only when it sits above every item that is in the saved copy.
 
-Wording, ordering, capitalisation and URL-prefix differences are not changes. If a price comes back in a different currency than the saved copy, the scrape was geo-routed: re-scrape that page (up to 2 retries) before comparing; if it still differs, do not report a price change and do not save that page. If a page has no saved copy, treat it as a first run: no changes, just save it.
+Wording, ordering, capitalisation and URL-prefix differences are not changes. If a price comes back in a different currency than the saved copy, the scrape was geo-routed: re-scrape that page (up to 2 retries) before comparing; if it still differs, do not report a price change, do not save that page, and note the currency mismatch under `Checks:`. If a page has no saved copy, treat it as a first run: no changes, just save it.
 
 ### 4. Research the "why" with Olostep Answers
 
